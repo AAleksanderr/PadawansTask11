@@ -9,7 +9,8 @@ namespace PadawansTask11
         {
             if (array == null) throw new ArgumentNullException();
             if (array.Length < 3) throw new ArgumentException();
-            if (accuracy < 0 || accuracy > 1) throw new ArgumentException();
+            if (accuracy <= 0 || accuracy >= 1) throw new ArgumentOutOfRangeException();
+            if (accuracy < 5.0E-324d) accuracy = 0;
             double[] leftsum = new double[array.Length];
             double[] rightsum = new double[array.Length];
             leftsum[0] = array[0];
